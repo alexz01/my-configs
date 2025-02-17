@@ -1,14 +1,14 @@
 function prompt {
     $e = [char]0x1b;
-    $str  = "$e[0;34mPS$e[0m ";
+    $str  = "$e[0;36mPS$e[0m ";
     $str += "$e[0;32m$env:USERNAME@$env:COMPUTERNAME$e[0m ";
-    $str += "$e[0;34m$((Get-Location).Path)$e[0m";
+    $str += "$e[0;36m$((Get-Location).Path)$e[0m";
 
     $branch = $(git branch --show-current 2>$null);
     if($branch -ne $null) {
         $str += " $e[0;33m($branch)$e[0m";
     }
-    $str += "`n$e[0;34m$((history).length+1)>$e[0m ";
+    $str += "`n$e[0;36m$((history).length+1)>$e[0m ";
     return $str;
 }
 
